@@ -1,0 +1,177 @@
+/* HEADER*/
+.header {
+  width: 9rem;
+  height: 100vh;
+  margin: 0;
+  position: fixed;
+  z-index: 99;
+  border-right: 1px solid #acaeb6;
+}
+
+.header-contents {
+  display: flex;
+  flex-direction: column;
+  height: inherit;
+  width: inherit;
+  position: relative;
+}
+
+.header-content {
+  display: flex;
+  flex-direction: column;
+  gap: 6rem;
+}
+
+.img-wrapper {
+  display: flex;
+  background-color: black;
+  justify-content: center;
+  align-items: center;
+}
+
+.page-title-wrapper {
+  transform: rotate(270deg);
+}
+.page-title-wrapper span {
+  white-space: nowrap;
+  font-size: 2rem;
+  text-transform: uppercase;
+}
+
+.nav-button-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.nav-button-wrapper button {
+  font-size: 5rem;
+  color: #ffffff;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+/* HEADER NAVIGATION */
+.menu-overlay {
+  position: absolute;
+  width: 100vw;
+  height: 100%;
+  background-color: black;
+  opacity: 0.9;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+  transition: all 0.5s ease-in;
+  transform: translateX(-80%);
+}
+
+.clicked.menu-overlay {
+  opacity: 1;
+  pointer-events: auto;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.overlay-header {
+  display: flex;
+  height: 9rem;
+  justify-content: space-between;
+  padding: 0 5rem 0 0;
+}
+.overlay-header a:hover .menu-icon-vector {
+  stroke-dasharray: 200;
+  animation: dash 1s infinite linear;
+}
+.exit-btn {
+  border: none;
+  background: none;
+  color: #ffffff;
+  cursor: pointer;
+}
+.exit-btn ion-icon {
+  font-size: 5rem;
+}
+.overlay-nav {
+  width: 100%;
+  height: auto;
+}
+.overlay-nav ul {
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  padding: 0 15rem 0 15rem;
+  transform: translateY(40px);
+}
+.overlay-nav li {
+  opacity: 0;
+}
+
+.overlay-nav a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 5rem;
+  font-weight: 500;
+  letter-spacing: 1rem;
+  padding-bottom: 2rem;
+  position: relative;
+}
+
+.border {
+  position: absolute;
+  display: block;
+  left: 0;
+  top: 100%;
+  margin: 0 auto;
+  height: 2px;
+  background-color: #ffffff;
+  width: 0%;
+  transition: width 1s ease;
+}
+
+.overlay-nav a:hover .border {
+  width: 100%;
+}
+
+.overlay-footer {
+  height: 20rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  position: relative;
+  margin: 0 15rem 0 15rem;
+}
+.overlay-footer ul {
+  list-style: none;
+  display: flex;
+  gap: 3rem;
+  transform: translateY(40px);
+}
+.overlay-footer li {
+  font-size: 4rem;
+  opacity: 0;
+}
+.overlay-footer a {
+  color: #ffffff;
+}
+
+.footer-border {
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 0;
+  height: 1px;
+  background-color: #ffffff;
+  width: 0;
+  opacity: 0;
+}
+
+.overlay-footer li:hover ion-icon {
+  color: #acaeb6;
+}
