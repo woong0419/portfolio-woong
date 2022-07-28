@@ -2,11 +2,13 @@ import anime from 'animejs';
 import ScrollMagic from 'scrollmagic';
 import css from './style.css';
 import headerCss from './header.css';
+import mainCss from './main.css';
 import { ScrollMagicPluginIndicator } from 'scrollmagic-plugins';
 
 ScrollMagicPluginIndicator(ScrollMagic);
 const controller = new ScrollMagic.Controller();
 
+//MENU CLICK HANDLER
 const menuAnimeHandler = (direction) => {
   anime({
     targets: '.menu-icon-vector',
@@ -21,10 +23,10 @@ const menuAnimeHandler = (direction) => {
 };
 
 const menuNavAnimeHandler = () => {
-  const test1 = anime.timeline({
-    duration: 700,
-  });
-  test1
+  anime
+    .timeline({
+      duration: 700,
+    })
     .add({
       targets: '.overlay-nav-list li',
       translateY: -40,
@@ -78,8 +80,8 @@ const menuCloseHandler = () => {
   });
 };
 
-//MENU CLICK BTN HANDLER
-const menuBtnHandler = () => {
+//MENU CLICK BTN METHOD
+const menuNav = () => {
   const menuBtn = document.querySelector('#nav-btn');
   const closeBtn = document.querySelector('.exit-btn');
   const mainBtn = document.querySelector('.overlay-img-wrapper');
@@ -115,7 +117,141 @@ const menuBtnHandler = () => {
     }, 500);
   });
 };
-menuBtnHandler();
+//SCROLL EVENT HANDLER
+const scrollEventHandler = (title) => {
+  const menuTitle = document.querySelector('.page-title-wrapper span');
+  let scrollAnime = new ScrollMagic.Scene({
+    triggerElement: `#${title}`,
+    duration: 1000,
+    triggerHook: 0,
+  })
+    .addIndicators({
+      colorTrigger: 'white',
+      colorStart: 'blue',
+      colorEnd: 'red',
+    })
+    .reverse(true)
+    .on('enter', function (event) {
+      anime({
+        duration: 400,
+        targets: menuTitle,
+        opacity: 0,
+        easing: 'easeInOutSine',
+      });
+      setTimeout(() => {
+        anime({
+          duration: 200,
+          targets: menuTitle,
+          opacity: 1,
+          easing: 'easeOutQuad',
+          innerHTML: title,
+          update: function (anim) {
+            menuTitle.innerHTML = menuTitle.innerHTML.slice(
+              0,
+              menuTitle.innerHTML.length - 2
+            );
+          },
+        });
+      }, 300);
+    })
+    .addTo(controller);
+};
+//SCROLL EVENT METHOD
+const scrollEvent = () => {
+  scrollEventHandler('home');
+  scrollEventHandler('about');
+  scrollEventHandler('skill');
+  scrollEventHandler('project');
+  scrollEventHandler('contact');
+};
+
+//LOADING SCREEN METHOD
+const loadingScreen = () => {
+  const html = document.querySelector('html');
+  const loading = document.querySelector('.loading');
+  html.style.overflow = 'hidden';
+
+  anime
+    .timeline({
+      duration: 2400,
+    })
+    .add({
+      targets: '.loading-logo-vector',
+      strokeDashoffset: [anime.setDashoffset, 0],
+      easing: 'easeInOutSine',
+      duration: 1000,
+      delay: function (el, i) {
+        return i * 250;
+      },
+    })
+    .add({
+      targets: ['.loading-text-name', '.loading-text-title'],
+      translateY: -20,
+      opacity: 1,
+      duration: 300,
+      loop: false,
+      easing: 'easeOutSine',
+      delay: function (el, i, l) {
+        return i * 100;
+      },
+      endDelay: function (el, i, l) {
+        return (l - i) * 100;
+      },
+    })
+    .add({
+      targets: '.loading-logo-vector',
+      strokeDashoffset: [0, anime.setDashoffset],
+      easing: 'easeInOutSine',
+      duration: 1000,
+      delay: function (el, i) {
+        return i * 250;
+      },
+      direction: 'revere',
+    })
+    .add({
+      targets: ['.loading-text-name', '.loading-text-title'],
+      translateY: -20,
+      duration: 100,
+      opacity: 0,
+      loop: false,
+      easing: 'easeOutSine',
+    })
+    .add({
+      targets: '.loading',
+      easing: 'linear',
+      duration: 300,
+      opacity: 0,
+      complete: () => {
+        loading.style.visibility = 'hidden';
+        html.style.overflow = 'scroll';
+        window.scrollTo({ top: 0 });
+      },
+    })
+    .add({
+      targets: '.home-text',
+      // translateY: -30,
+      opacity: 1,
+      easing: 'linear',
+      duration: 600,
+      loop: false,
+      delay: function (el, i, l) {
+        return i * 50;
+      },
+      endDelay: function (el, i, l) {
+        return (l - i) * 50;
+      },
+    })
+    .add({
+      targets: '.button-wrapper',
+      duration: 600,
+      opacity: 1,
+      easing: 'linear',
+    });
+};
+
+scrollEvent();
+menuNav();
+loadingScreen();
 
 // const outerPath = document.querySelectorAll('#Vector_3 path, #Vector');
 // console.log(outerPath);
@@ -232,35 +368,35 @@ let scrollAnime = new ScrollMagic.Scene({
   .setPin('#skill')
   .addTo(controller);
 
-const test1 = anime.timeline({
-  duration: 3000,
-});
-test1
-  .add({
-    targets: '.Vector',
-    strokeDashoffset: [anime.setDashoffset, 0],
-    easing: 'easeInOutSine',
-    duration: 1500,
-    delay: function (el, i) {
-      return i * 250;
-    },
-    direction: 'reverse',
-  })
-  .add(
-    {
-      targets: '.test',
-      translateY: -50,
-      opacity: 1,
-      loop: false,
-      delay: function (el, i, l) {
-        return i * 100;
-      },
-      endDelay: function (el, i, l) {
-        return (l - i) * 100;
-      },
-    },
-    '-=100'
-  );
+// const test1 = anime.timeline({
+//   duration: 3000,
+// });
+// test1
+//   .add({
+//     targets: '.Vector',
+//     strokeDashoffset: [anime.setDashoffset, 0],
+//     easing: 'easeInOutSine',
+//     duration: 1500,
+//     delay: function (el, i) {
+//       return i * 250;
+//     },
+//     direction: 'reverse',
+//   })
+//   .add(
+//     {
+//       targets: '.test',
+//       translateY: -50,
+//       opacity: 1,
+//       loop: false,
+//       delay: function (el, i, l) {
+//         return i * 100;
+//       },
+//       endDelay: function (el, i, l) {
+//         return (l - i) * 100;
+//       },
+//     },
+//     '-=100'
+//   );
 
 const tl = anime.timeline({
   easing: 'easeOutExpo',

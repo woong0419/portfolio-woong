@@ -89,6 +89,7 @@
   stroke-dasharray: 200;
   animation: dash 1s infinite linear;
 }
+
 .exit-btn {
   border: none;
   background: none;
