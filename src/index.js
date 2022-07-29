@@ -183,6 +183,9 @@ const loadingScreen = () => {
       delay: function (el, i) {
         return i * 250;
       },
+      begin: () => {
+        window.scrollTo({ top: 0 });
+      },
     })
     .add({
       targets: ['.loading-text-name', '.loading-text-title'],
@@ -224,7 +227,7 @@ const loadingScreen = () => {
       complete: () => {
         loading.style.visibility = 'hidden';
         html.style.overflow = 'scroll';
-        window.scrollTo({ top: 0 });
+        // window.scrollTo({ top: 0 });
       },
     })
     .add({
@@ -249,9 +252,104 @@ const loadingScreen = () => {
     });
 };
 
+//ABOUT METHOD
+const aboutScroll = () => {
+  const svg = document.querySelector('.home-contents svg');
+  let aboutAnime = new ScrollMagic.Scene({
+    triggerElement: '#about',
+    triggerHook: 0.2,
+  })
+    .addIndicators({
+      colorTrigger: 'white',
+      colorStart: 'blue',
+      colorEnd: 'red',
+    })
+    .reverse(true)
+    .on('enter', function (event) {
+      anime
+        .timeline({
+          targets: svg,
+        })
+        .add({
+          duration: 1200,
+          easing: 'easeOutBounce',
+          keyframes: [
+            { rotate: -25 },
+            {
+              translateY: '75vh',
+              translateX: '-50rem',
+            },
+          ],
+        })
+        .add({
+          easing: 'easeOutElastic',
+          duration: 2000,
+          rotate: 0,
+          translateX: '0rem',
+        })
+        .add(
+          {
+            targets: '.about-greeting p',
+            duration: 700,
+            easing: 'easeOutElastic',
+            translateY: '5rem',
+            rotate: () => {
+              return anime.random(-5, 5);
+            },
+            opacity: 1,
+            delay: function (el, i, l) {
+              return i * anime.random(0, 170);
+            },
+            endDelay: function (el, i, l) {
+              return (l - i) * anime.random(0, 100);
+            },
+          },
+          '-=2100'
+        );
+
+      anime({
+        duration: 2000,
+        easing: 'easeInExpo',
+        targets: '.about-text',
+
+        opacity: 1,
+      });
+    })
+    .addTo(controller);
+
+  const reverseAbout = new ScrollMagic.Scene({
+    triggerElement: '#about',
+    triggerHook: 0.3,
+  })
+    .on('leave', () => {
+      anime
+        .timeline({
+          targets: '.about-greeting p',
+          translateY: 0,
+          duration: 1000,
+          opacity: 0,
+        })
+        .add({
+          duration: 3000,
+          targets: '.home-contents svg',
+          translateY: 0,
+          translateX: 0,
+          rotate: 0,
+        });
+
+      anime({
+        duration: 2000,
+        targets: '.about-text',
+        opacity: 0,
+      });
+    })
+    .addTo(controller);
+};
+
 scrollEvent();
 menuNav();
 loadingScreen();
+aboutScroll();
 
 // const outerPath = document.querySelectorAll('#Vector_3 path, #Vector');
 // console.log(outerPath);

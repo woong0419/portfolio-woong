@@ -1,3 +1,4 @@
+/* LOADING */
 .loading {
   position: fixed;
   width: 100vw;
@@ -37,7 +38,7 @@
   color: #acaeb6;
   padding-top: 1.8rem;
 }
-
+/* HOME CONTENT */
 .home-contents {
   display: flex;
   flex-direction: column;
@@ -64,13 +65,83 @@
 .button-wrapper {
   transform: translate(37rem, -12rem);
   opacity: 0;
+  position: relative;
+  width: 11rem;
 }
-.button-wrapper button {
+.button-wrapper a {
+  position: absolute;
   border: 2px solid #00b1bd;
   border-radius: 3rem;
-  background: none;
   color: #00b1bd;
   font-size: 2rem;
   padding: 1rem 1.5rem 1rem 1.5rem;
   cursor: pointer;
+  top: 0;
+  right: 0;
+  width: 7rem;
+  height: 2rem;
+  transition: 1s ease;
+  display: flex;
+  align-items: center;
+}
+
+.button-wrapper p {
+  position: absolute;
+  transition: 1s ease;
+}
+
+.button-wrapper ion-icon {
+  font-size: 1rem;
+  transition: 1s ease;
+  opacity: 0;
+  color: black;
+  align-self: center;
+}
+
+.button-wrapper:hover a {
+  width: 1rem;
+  background-color: #00b1bd;
+}
+.button-wrapper:hover p {
+  transform: translateX(-9rem);
+}
+.button-wrapper:hover ion-icon {
+  transform: scale(2);
+  opacity: 1;
+}
+
+/* ABOUT CONTENT */
+#about {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+.about-contents {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 22rem;
+  justify-content: center;
+}
+.about-textbox {
+  height: 100%;
+  transform: translateX(-16rem);
+}
+.about-greeting {
+  font-size: 5rem;
+  color: #00b1bd;
+  display: flex;
+  gap: 1rem;
+  padding-bottom: 7rem;
+}
+.about-greeting p {
+  opacity: 0;
+}
+.about-text {
+  font-size: 2rem;
+  padding-top: 3rem;
+  line-height: 3rem;
+  opacity: 0;
 }
