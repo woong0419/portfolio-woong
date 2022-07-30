@@ -32,8 +32,6 @@ section {
 #WOONG .stroke-path {
   stroke-dasharray: 350;
 }
-#layer-2 path {
-}
 
 svg:hover .Vector {
   stroke-dasharray: 200;
@@ -45,52 +43,4 @@ svg:hover .Vector {
   to {
     stroke-dashoffset: 1500;
   }
-}
-
-.test-wrapper {
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-}
-
-.test {
-  margin: 10px;
-  width: 30px;
-  height: 30px;
-  background-color: white;
-  opacity: 0;
-}
-
-.test-grid {
-  width: 100vw;
-  height: 100vh;
-  display: grid;
-  gap: 20%;
-  grid-template-columns: repeat(3, 50px);
-  align-items: center;
-  justify-content: center;
-}
-
-#test1,
-#test2,
-#test3 {
-  margin: 10px;
-  width: 30px;
-  height: 30px;
-  background-color: red;
-}
-
-.test-box {
-  justify-self: center;
-  align-self: center;
-  margin: 10px;
-  width: 30px;
-  height: 30px;
-  background-color: red;
-}
-
-.test-box:hover {
-  background-color: aqua;
-  width: 60px;
-  height: 60px;
 }

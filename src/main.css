@@ -145,3 +145,46 @@
   line-height: 3rem;
   opacity: 0;
 }
+
+/* SKILL CONTENT */
+#skill {
+  display: flex;
+  justify-content: center;
+}
+.skill-contents {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  position: relative;
+}
+.skill-title {
+  color: #00b1bd;
+  font-size: 4rem;
+  position: absolute;
+  transform: translate(-31rem, -45rem);
+}
+.skill-content-wrapper {
+  justify-content: center;
+}
+.grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 24rem);
+  grid-template-rows: repeat(3, 20rem);
+  gap: 1.5rem;
+}
+.skill-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7rem;
+}
+.skill-wrapper span {
+  font-size: 1.5rem;
+  color: #00b1bd;
+}
+.skill-wrapper svg {
+  color: #ffffff;
+}

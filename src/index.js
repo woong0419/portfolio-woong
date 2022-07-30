@@ -346,10 +346,73 @@ const aboutScroll = () => {
     .addTo(controller);
 };
 
+//SKILLS METHOD
+const skillGridAnime = () => {
+  anime
+    .timeline({
+      targets: '.skill-content-wrapper',
+      delay: anime.stagger(300, { grid: [4, 3], from: 'center' }),
+      loop: true,
+    })
+    .add({
+      duration: 1000,
+      targets: '.skill-wrapper svg',
+      scale: 0.5,
+    })
+    .add(
+      {
+        duration: 1000,
+        targets: '.skill-wrapper span',
+        color: '#F076BC',
+      },
+      '-=1000'
+    )
+    .add({
+      duration: 1000,
+      targets: '.skill-content-wrapper',
+      gap: '5rem',
+    })
+    .add(
+      {
+        duration: 1000,
+        targets: '.skill-wrapper span',
+        color: '#9E489B',
+      },
+      '-=1000'
+    )
+    .add({
+      duration: 1000,
+      targets: '.skill-wrapper svg',
+      scale: 1,
+    })
+    .add(
+      {
+        duration: 1000,
+        targets: '.skill-wrapper span',
+        color: '#736FBD',
+      },
+      '-=1000'
+    )
+    .add({
+      duration: 1000,
+      targets: '.skill-content-wrapper',
+      gap: '1.5',
+    })
+    .add(
+      {
+        duration: 1000,
+        targets: '.skill-wrapper span',
+        color: '#00b1bd',
+      },
+      '-=1000'
+    );
+};
+
 scrollEvent();
 menuNav();
 loadingScreen();
 aboutScroll();
+skillGridAnime();
 
 // const outerPath = document.querySelectorAll('#Vector_3 path, #Vector');
 // console.log(outerPath);
@@ -428,43 +491,21 @@ for (let i = 0; i < letterEls.length; i++) {
 //   direction: 'forwards',
 // });
 
-const test5 = anime.timeline({
-  // targets: '.test-box',
-  // delay: anime.stagger(500, { grid: [3, 3], from: 'center' }),
-  // loop: true,
-  autoplay: false,
-});
-test5
-  .add({
-    scale: 0.5,
-  })
-  .add({
-    targets: '.test-grid',
-    gap: 5,
-  })
-  .add({
-    scale: 1,
-  })
-  .add({
-    targets: '.test-grid',
-    gap: 20,
-  });
-
-let scrollAnime = new ScrollMagic.Scene({
-  triggerElement: '#skill',
-  duration: 2000,
-  triggerHook: 0,
-})
-  .addIndicators({
-    colorTrigger: 'white',
-    colorStart: 'blue',
-    colorEnd: 'red',
-  })
-  .on('progress', function (event) {
-    test5.seek(test5.duration * event.progress);
-  })
-  .setPin('#skill')
-  .addTo(controller);
+// let scrollAnime = new ScrollMagic.Scene({
+//   triggerElement: '#skill',
+//   duration: 2000,
+//   triggerHook: 0,
+// })
+//   .addIndicators({
+//     colorTrigger: 'white',
+//     colorStart: 'blue',
+//     colorEnd: 'red',
+//   })
+//   .on('progress', function (event) {
+//     test5.seek(test5.duration * event.progress);
+//   })
+//   .setPin('#skill')
+//   .addTo(controller);
 
 // const test1 = anime.timeline({
 //   duration: 3000,
