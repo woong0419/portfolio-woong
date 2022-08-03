@@ -408,11 +408,76 @@ const skillGridAnime = () => {
     );
 };
 
+//PROJECT METHOD
+const projectMethod = () => {
+  const projectAnime = new ScrollMagic.Scene({
+    triggerElement: '#project',
+    triggerHook: 0.25,
+    duration: '100%',
+  })
+    .addIndicators({
+      colorTrigger: 'white',
+      colorStart: 'blue',
+      colorEnd: 'red',
+    })
+    .reverse(true)
+    .on('enter', () => {
+      anime
+        .timeline({
+          targets: '.project-content-card',
+        })
+        .add({
+          easing: 'linear',
+          duration: 500,
+          opacity: 1,
+          rotateY: '0',
+          delay: anime.stagger(200, { from: 'first' }),
+        });
+    })
+    .on('leave', () => {
+      anime
+        .timeline({
+          targets: '.project-content-card',
+        })
+        .add({
+          easing: 'linear',
+          duration: 300,
+          opacity: 0,
+          rotateY: '80',
+        });
+    })
+    .addTo(controller);
+};
+
+const projectCardMethod = () => {
+  const card = document.querySelectorAll('.project-content-card');
+  let playing = false;
+
+  card.forEach((element) => {
+    element.addEventListener('click', () => {
+      if (playing) return;
+      playing = true;
+      anime({
+        targets: element,
+        scale: [{ value: 1 }, { value: 1.2 }, { value: 1, delay: 250 }],
+        rotateY: { value: '+=180', delay: 200 },
+        easing: 'easeInOutSine',
+        duration: 600,
+        complete: function (anim) {
+          playing = false;
+        },
+      });
+    });
+  });
+};
+
 scrollEvent();
 menuNav();
 loadingScreen();
 aboutScroll();
 skillGridAnime();
+projectCardMethod();
+projectMethod();
 
 // const outerPath = document.querySelectorAll('#Vector_3 path, #Vector');
 // console.log(outerPath);
@@ -536,22 +601,3 @@ for (let i = 0; i < letterEls.length; i++) {
 //     },
 //     '-=100'
 //   );
-const card = document.querySelectorAll('.project-content-card');
-let playing = false;
-
-card.forEach((element) => {
-  element.addEventListener('click', () => {
-    if (playing) return;
-    playing = true;
-    anime({
-      targets: element,
-      scale: [{ value: 1 }, { value: 1.2 }, { value: 1, delay: 250 }],
-      rotateY: { value: '+=180', delay: 200 },
-      easing: 'easeInOutSine',
-      duration: 600,
-      complete: function (anim) {
-        playing = false;
-      },
-    });
-  });
-});

@@ -39,6 +39,9 @@
   padding-top: 1.8rem;
 }
 /* HOME CONTENT */
+#home {
+  height: 100vh;
+}
 .home-contents {
   display: flex;
   flex-direction: column;
@@ -226,6 +229,8 @@
   justify-content: center;
   align-items: center;
   transform-style: preserve-3d;
+  opacity: 0;
+  transform: rotateY(80deg);
 }
 .card-front-skills {
   position: absolute;
