@@ -122,8 +122,8 @@ const scrollEventHandler = (title) => {
   const menuTitle = document.querySelector('.page-title-wrapper span');
   let scrollAnime = new ScrollMagic.Scene({
     triggerElement: `#${title}`,
-    duration: 1000,
-    triggerHook: 0,
+    duration: '100%',
+    triggerHook: 0.25,
   })
     .addIndicators({
       colorTrigger: 'white',
@@ -257,7 +257,7 @@ const aboutScroll = () => {
   const svg = document.querySelector('.home-contents svg');
   let aboutAnime = new ScrollMagic.Scene({
     triggerElement: '#about',
-    triggerHook: 0.2,
+    triggerHook: 0.25,
   })
     .addIndicators({
       colorTrigger: 'white',
@@ -271,12 +271,12 @@ const aboutScroll = () => {
           targets: svg,
         })
         .add({
-          duration: 1200,
+          duration: 1100,
           easing: 'easeOutBounce',
           keyframes: [
             { rotate: -25 },
             {
-              translateY: '75vh',
+              translateY: '90vh',
               translateX: '-50rem',
             },
           ],
@@ -326,7 +326,7 @@ const aboutScroll = () => {
         .timeline({
           targets: '.about-greeting p',
           translateY: 0,
-          duration: 1000,
+          duration: 800,
           opacity: 0,
         })
         .add({
@@ -351,7 +351,7 @@ const skillGridAnime = () => {
   anime
     .timeline({
       targets: '.skill-content-wrapper',
-      delay: anime.stagger(300, { grid: [4, 3], from: 'center' }),
+      delay: anime.stagger(200, { grid: [4, 3], from: 'center' }),
       loop: true,
     })
     .add({
@@ -362,7 +362,7 @@ const skillGridAnime = () => {
     .add(
       {
         duration: 1000,
-        targets: '.skill-wrapper span',
+        targets: '.skill-wrapper svg',
         color: '#F076BC',
       },
       '-=1000'
@@ -375,8 +375,8 @@ const skillGridAnime = () => {
     .add(
       {
         duration: 1000,
-        targets: '.skill-wrapper span',
-        color: '#9E489B',
+        targets: '.skill-wrapper svg',
+        color: '#736FBD',
       },
       '-=1000'
     )
@@ -388,8 +388,8 @@ const skillGridAnime = () => {
     .add(
       {
         duration: 1000,
-        targets: '.skill-wrapper span',
-        color: '#736FBD',
+        targets: '.skill-wrapper svg',
+        color: '#9E489B',
       },
       '-=1000'
     )
@@ -401,7 +401,7 @@ const skillGridAnime = () => {
     .add(
       {
         duration: 1000,
-        targets: '.skill-wrapper span',
+        targets: '.skill-wrapper svg',
         color: '#00b1bd',
       },
       '-=1000'
@@ -536,27 +536,22 @@ for (let i = 0; i < letterEls.length; i++) {
 //     },
 //     '-=100'
 //   );
+const card = document.querySelectorAll('.project-content-card');
+let playing = false;
 
-const tl = anime.timeline({
-  easing: 'easeOutExpo',
-  duration: 750,
+card.forEach((element) => {
+  element.addEventListener('click', () => {
+    if (playing) return;
+    playing = true;
+    anime({
+      targets: element,
+      scale: [{ value: 1 }, { value: 1.2 }, { value: 1, delay: 250 }],
+      rotateY: { value: '+=180', delay: 200 },
+      easing: 'easeInOutSine',
+      duration: 600,
+      complete: function (anim) {
+        playing = false;
+      },
+    });
+  });
 });
-
-tl.add({
-  targets: '#test1',
-  translateY: -250,
-})
-  .add(
-    {
-      targets: '#test2',
-      translateY: -250,
-    },
-    '-=600'
-  ) // relative offset
-  .add(
-    {
-      targets: '#test3',
-      translateY: -250,
-    },
-    400
-  ); // absolute offset

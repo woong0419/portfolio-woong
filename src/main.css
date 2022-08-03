@@ -122,7 +122,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 22rem;
+  padding-top: 42rem;
   justify-content: center;
 }
 .about-textbox {
@@ -144,6 +144,7 @@
   padding-top: 3rem;
   line-height: 3rem;
   opacity: 0;
+  color: #acaeb6;
 }
 
 /* SKILL CONTENT */
@@ -160,13 +161,15 @@
   position: relative;
 }
 .skill-title {
-  color: #00b1bd;
+  color: #ffffff;
   font-size: 4rem;
   position: absolute;
-  transform: translate(-31rem, -45rem);
+  transform: translate(-31rem, 0);
+  top: 15rem;
 }
 .skill-content-wrapper {
   justify-content: center;
+  padding-top: 15rem;
 }
 .grid-4 {
   display: grid;
@@ -183,8 +186,106 @@
 }
 .skill-wrapper span {
   font-size: 1.5rem;
-  color: #00b1bd;
+  color: #ffffff;
 }
 .skill-wrapper svg {
-  color: #ffffff;
+  color: #00b1bd;
+}
+
+/* PROJECT CONTENTS */
+
+#project {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.project-contents {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.project-title {
+  font-size: 4rem;
+  padding-bottom: 4rem;
+
+  transform: translateX(-28rem);
+}
+.project-content-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4rem;
+  max-width: 130rem;
+}
+.project-content-card {
+  position: relative;
+  border-radius: 1rem;
+  max-width: 60rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform-style: preserve-3d;
+}
+.card-front-skills {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  list-style: none;
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+  height: 7rem;
+  border-bottom-right-radius: 1rem;
+  border-bottom-left-radius: 1rem;
+  align-items: center;
+}
+.card-front-skills li {
+  font-size: 1.3rem;
+}
+.card-front,
+.card-back {
+  width: 100%;
+  height: 100%;
+  border-radius: 1rem;
+  backface-visibility: hidden;
+}
+.card-front img {
+  border-radius: 1rem;
+  width: 100%;
+  filter: brightness(0.8);
+}
+.card-back {
+  border-radius: 1rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: rotateY(180deg);
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.card-back-title {
+  color: #00b1bd;
+  font-size: 3rem;
+}
+.card-back-text {
+  color: #2b2b2b;
+  font-size: 1.5rem;
+  padding: 2rem 4rem;
+}
+.card-back-btn {
+  display: flex;
+  gap: 2rem;
+  align-self: flex-end;
+  margin-right: 6rem;
+}
+.btn-git,
+.btn-live {
+  text-decoration: none;
+  font-size: 1.2rem;
+  color: #acaeb6;
+  cursor: pointer;
 }
