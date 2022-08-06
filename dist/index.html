@@ -867,8 +867,56 @@
         </div>
       </section>
       <section id="contact">
-        <div class="contact-contents menu-padding">contact</div>
+        <div class="contact-contents menu-padding">
+          <div class="contact-title"><h1>CONTACT</h1></div>
+          <div class="contact-form">
+            <form
+              class="gform"
+              method="post"
+              action="https://script.google.com/macros/s/AKfycbyy--E0NET8Ymhs1GBHt9yK_iufj8vIZdqH1QDt4dJVHeq4wob-uoXmpSjQONF9_k_g/exec"
+            >
+              <div class="contact-form-name">
+                <label for="name">Name</label>
+                <input
+                  id="name"
+                  type="text"
+                  placeholder="Your name"
+                  name="name"
+                  required
+                />
+              </div>
+              <div class="contact-form-email">
+                <label for="email">Email Address</label>
+                <input
+                  id="email"
+                  type="email"
+                  placeholder="Your e-mail address"
+                  name="email"
+                  required
+                />
+              </div>
+              <div class="contact-form-message">
+                <label for="userMessage">Message</label>
+                <textarea
+                  name="message"
+                  id="userMessage"
+                  type="text"
+                  required
+                ></textarea>
+              </div>
+              <button type="submit" class="btn-contact-submit">
+                Send
+                <div class="bg"></div>
+              </button>
+            </form>
+          </div>
+        </div>
       </section>
     </main>
+    <script
+      data-cfasync="false"
+      type="text/javascript"
+      src="https://cdn.rawgit.com/dwyl/html-form-send-email-via-google-script-without-server/master/form-submission-handler.js"
+    ></script>
   </body>
 </html>

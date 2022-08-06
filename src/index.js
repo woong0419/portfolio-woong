@@ -244,12 +244,15 @@ const loadingScreen = () => {
         return (l - i) * 50;
       },
     })
-    .add({
-      targets: '.button-wrapper',
-      duration: 600,
-      opacity: 1,
-      easing: 'linear',
-    });
+    .add(
+      {
+        targets: '.button-wrapper',
+        duration: 600,
+        opacity: 1,
+        easing: 'linear',
+      },
+      '-=500'
+    );
 };
 
 //ABOUT METHOD
@@ -410,6 +413,12 @@ const skillGridAnime = () => {
 
 //PROJECT METHOD
 const projectMethod = () => {
+  const card = document.querySelectorAll('.project-content-card');
+  card.forEach((element) => {
+    element.style.opacity = '0';
+    element.style.transform = 'rotateY(80deg)';
+  });
+
   const projectAnime = new ScrollMagic.Scene({
     triggerElement: '#project',
     triggerHook: 0.25,
@@ -430,7 +439,7 @@ const projectMethod = () => {
           easing: 'linear',
           duration: 500,
           opacity: 1,
-          rotateY: '0',
+          rotateY: 0,
           delay: anime.stagger(200, { from: 'first' }),
         });
     })
@@ -440,10 +449,10 @@ const projectMethod = () => {
           targets: '.project-content-card',
         })
         .add({
-          easing: 'linear',
-          duration: 300,
+          easing: 'easeOutExpo',
+          duration: 1000,
           opacity: 0,
-          rotateY: '80',
+          rotateY: 80,
         });
     })
     .addTo(controller);
