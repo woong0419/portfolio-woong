@@ -348,11 +348,11 @@
 .gform input[type='text'],
 .gform input[type='email'],
 .gform textarea[type='text'] {
-  font-size: 2rem;
+  font-size: inherit;
   border-width: 4px;
 }
 .btn-contact-submit {
-  font-size: 2rem;
+  font-size: inherit;
   padding: 1rem 2rem;
   background: none;
   color: #00b1bd;

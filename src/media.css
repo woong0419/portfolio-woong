@@ -1,0 +1,202 @@
+@media (max-width: 1536px) {
+  .skill-title {
+    transform: translate(-31rem, -3rem);
+  }
+  .skill-wrapper svg {
+    width: 60px;
+    height: 60px;
+  }
+  .grid-4 {
+    grid-template-columns: repeat(4, 24rem);
+    grid-template-rows: repeat(3, 13rem);
+  }
+  .project-content-card {
+    max-width: 50rem;
+  }
+  .skill-title,
+  .project-title,
+  .contact-title {
+    font-size: 3rem;
+  }
+}
+@media (max-width: 1370px) {
+  .home-contents svg {
+    width: 800px;
+  }
+  .home-text-wrapper {
+    transform: translate(20rem, -15rem);
+  }
+  .button-wrapper {
+    transform: translate(28rem, -12rem);
+  }
+  .about-textbox {
+    transform: translateX(-8rem);
+  }
+
+  .skill-title {
+    transform: translate(-25.5rem, -3rem);
+  }
+  .grid-4 {
+    grid-template-columns: repeat(4, 19.5rem);
+    grid-template-rows: repeat(3, 11rem);
+  }
+  .project-title {
+    transform: translateX(-22rem);
+  }
+  .project-content-card {
+    max-width: 40rem;
+  }
+  .contact-title {
+    transform: translateX(-24rem);
+  }
+
+  .gform {
+    gap: 2rem;
+    font-size: 1.5rem;
+  }
+  .overlay-nav a {
+    font-size: 4rem;
+  }
+}
+
+@media (max-width: 1200px) {
+  .home-contents svg {
+    width: 700px;
+    height: 500px;
+  }
+  .home-text-wrapper {
+    transform: translate(16rem, -15rem);
+  }
+  .button-wrapper {
+    transform: translate(24.5rem, -12rem);
+  }
+
+  .about-contents {
+    padding-top: 25rem;
+  }
+  .about-textbox {
+    transform: translateX(-4rem);
+    padding-top: 1rem;
+  }
+
+  .skill-title {
+    transform: translate(-25.5rem, -3rem);
+  }
+  .grid-4 {
+    grid-template-columns: repeat(4, 15.5rem);
+    grid-template-rows: repeat(3, 9rem);
+  }
+  .skill-wrapper svg {
+    width: 50px;
+    height: 50px;
+  }
+  .skill-wrapper span {
+    font-size: 1.2rem;
+  }
+
+  .project-title {
+    transform: translateX(-22rem);
+  }
+  .project-content-card {
+    max-width: 40rem;
+  }
+  .contact-title {
+    transform: translateX(-24rem);
+  }
+  .overlay-nav a {
+    font-size: 3rem;
+  }
+  .overlay-footer {
+    height: 13rem;
+  }
+  .overlay-footer li {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 1007px) {
+  .skill-title,
+  .project-title,
+  .contact-title {
+    font-size: 2rem;
+  }
+  .header {
+    border-right: none;
+  }
+  .header-content {
+    display: none;
+  }
+  .nav-button-wrapper {
+    top: 0;
+    left: 0;
+    transform: translate(2rem, 2rem);
+  }
+  .overlay-nav {
+    height: 50%;
+  }
+  .overlay-nav ul {
+    height: 100%;
+    flex-direction: column;
+  }
+  .menu-padding {
+    padding-left: 0;
+    width: 100%;
+  }
+
+  .home-contents svg {
+    width: 500px;
+    height: 300px;
+  }
+  .home-text-wrapper {
+    transform: translate(6rem, -4rem);
+  }
+  .button-wrapper {
+    transform: translate(14rem, -4rem);
+  }
+  .about-greeting {
+    font-size: 3.5rem;
+    padding-bottom: 3.5rem;
+  }
+  .about-text {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+  .about-contents {
+    padding-top: 16rem;
+  }
+  .about-textbox {
+    transform: translateX(-0.5rem);
+    padding-top: 1rem;
+  }
+
+  .skill-title {
+    transform: translate(-13.5rem, -12rem);
+  }
+  .grid-4 {
+    grid-template-columns: repeat(3, 15.5rem);
+    grid-template-rows: repeat(4, 9rem);
+  }
+  #skill {
+    min-height: auto;
+  }
+  .project-title {
+    transform: translateX(-10.5rem);
+    padding-top: 15rem;
+  }
+  .project-content-card {
+    max-width: 35rem;
+  }
+  .contact-contents {
+    height: auto;
+  }
+  .contact-title {
+    transform: translateX(-11rem);
+    padding-top: 15rem;
+  }
+  .contact-form {
+    padding-bottom: 8rem;
+  }
+}
+
+@media (max-width: 640px) {
+}

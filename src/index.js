@@ -3,7 +3,17 @@ import ScrollMagic from 'scrollmagic';
 import css from './style.css';
 import headerCss from './header.css';
 import mainCss from './main.css';
+import media from './media.css';
 import { ScrollMagicPluginIndicator } from 'scrollmagic-plugins';
+
+const width =
+  window.innerWidth ||
+  document.documentElement.clientWidth ||
+  document.body.clientWidth;
+const height =
+  window.innerHeight ||
+  document.documentElement.clientHeight ||
+  document.body.clientHeight;
 
 ScrollMagicPluginIndicator(ScrollMagic);
 const controller = new ScrollMagic.Controller();
@@ -157,6 +167,7 @@ const scrollEventHandler = (title) => {
     .addTo(controller);
 };
 //SCROLL EVENT METHOD
+
 const scrollEvent = () => {
   scrollEventHandler('home');
   scrollEventHandler('about');
@@ -350,17 +361,26 @@ const aboutScroll = () => {
 };
 
 //SKILLS METHOD
-const skillGridAnime = () => {
+const skillGridAnime = (width) => {
+  let col = 4;
+  let row = 3;
+  let gap = '5rem';
+  if (width < 1007) {
+    col = 3;
+    row = 4;
+    gap = '3rem';
+  }
+
   anime
     .timeline({
       targets: '.skill-content-wrapper',
-      delay: anime.stagger(200, { grid: [4, 3], from: 'center' }),
+      delay: anime.stagger(200, { grid: [col, row], from: 'center' }),
       loop: true,
     })
     .add({
       duration: 1000,
       targets: '.skill-wrapper svg',
-      scale: 0.5,
+      scale: 0.7,
     })
     .add(
       {
@@ -373,7 +393,8 @@ const skillGridAnime = () => {
     .add({
       duration: 1000,
       targets: '.skill-content-wrapper',
-      gap: '5rem',
+      gap: gap,
+      paddingTop: '10.5rem',
     })
     .add(
       {
@@ -400,6 +421,7 @@ const skillGridAnime = () => {
       duration: 1000,
       targets: '.skill-content-wrapper',
       gap: '1.5',
+      paddingTop: '15rem',
     })
     .add(
       {
@@ -422,7 +444,7 @@ const projectMethod = () => {
   const projectAnime = new ScrollMagic.Scene({
     triggerElement: '#project',
     triggerHook: 0.25,
-    duration: '100%',
+    // duration: '100%',
   })
     .addIndicators({
       colorTrigger: 'white',
@@ -480,11 +502,13 @@ const projectCardMethod = () => {
   });
 };
 
-scrollEvent();
+if (width > 1007) {
+  scrollEvent();
+}
 menuNav();
 loadingScreen();
 aboutScroll();
-skillGridAnime();
+skillGridAnime(width);
 projectCardMethod();
 projectMethod();
 
