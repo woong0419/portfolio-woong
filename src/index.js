@@ -10,10 +10,6 @@ const width =
   window.innerWidth ||
   document.documentElement.clientWidth ||
   document.body.clientWidth;
-const height =
-  window.innerHeight ||
-  document.documentElement.clientHeight ||
-  document.body.clientHeight;
 
 ScrollMagicPluginIndicator(ScrollMagic);
 const controller = new ScrollMagic.Controller();
@@ -97,17 +93,20 @@ const menuNav = () => {
   const mainBtn = document.querySelector('.overlay-img-wrapper');
   const overlay = document.querySelector('.menu-overlay');
   const navList = document.querySelector('.overlay-nav-list');
+  const html = document.querySelector('html');
 
   menuBtn.addEventListener('click', () => {
     overlay.classList.toggle('clicked');
     setTimeout(() => {
       menuAnimeHandler('forwards');
       menuNavAnimeHandler();
+      html.style.overflow = 'hidden';
     }, 500);
   });
   closeBtn.addEventListener('click', () => {
     menuAnimeHandler('reverse');
     menuCloseHandler();
+    html.style.overflow = 'scroll';
     setTimeout(() => {
       overlay.classList.toggle('clicked');
     }, 500);
@@ -115,6 +114,7 @@ const menuNav = () => {
   mainBtn.addEventListener('click', () => {
     menuAnimeHandler('reverse');
     menuCloseHandler();
+    html.style.overflow = 'scroll';
     setTimeout(() => {
       overlay.classList.toggle('clicked');
     }, 500);
@@ -122,6 +122,7 @@ const menuNav = () => {
   navList.addEventListener('click', () => {
     menuAnimeHandler('reverse');
     menuCloseHandler();
+    html.style.overflow = 'scroll';
     setTimeout(() => {
       overlay.classList.toggle('clicked');
     }, 500);
@@ -135,11 +136,6 @@ const scrollEventHandler = (title) => {
     duration: '100%',
     triggerHook: 0.25,
   })
-    .addIndicators({
-      colorTrigger: 'white',
-      colorStart: 'blue',
-      colorEnd: 'red',
-    })
     .reverse(true)
     .on('enter', function (event) {
       anime({
@@ -273,11 +269,6 @@ const aboutScroll = () => {
     triggerElement: '#about',
     triggerHook: 0.25,
   })
-    .addIndicators({
-      colorTrigger: 'white',
-      colorStart: 'blue',
-      colorEnd: 'red',
-    })
     .reverse(true)
     .on('enter', function (event) {
       anime
@@ -446,11 +437,6 @@ const projectMethod = () => {
     triggerHook: 0.25,
     // duration: '100%',
   })
-    .addIndicators({
-      colorTrigger: 'white',
-      colorStart: 'blue',
-      colorEnd: 'red',
-    })
     .reverse(true)
     .on('enter', () => {
       anime
@@ -512,12 +498,6 @@ skillGridAnime(width);
 projectCardMethod();
 projectMethod();
 
-// const outerPath = document.querySelectorAll('#Vector_3 path, #Vector');
-// console.log(outerPath);
-// outerPath.forEach((element) => {
-//   element.style.strokeDasharray = '450';
-// });
-
 const pathEls = document.querySelectorAll('.stroke-path');
 for (let i = 0; i < pathEls.length; i++) {
   const pathEl = pathEls[i];
@@ -548,89 +528,3 @@ for (let i = 0; i < letterEls.length; i++) {
     loop: true,
   });
 }
-
-// anime({
-//   targets: '.test',
-//   translateX: 250,
-//   rotate: '1turn',
-//   backgroundColor: '#FFF',
-//   duration: 800,
-// });
-
-// anime({
-//   targets: '#redU',
-//   translateX: -115,
-//   translateY: -10,
-//   duration: 1000,
-//   easing: 'easeInOutQuad',
-// });
-
-// anime({
-//   targets: '.test',
-//   translateY: -50,
-//   opacity: 1,
-//   loop: false,
-//   delay: function (el, i, l) {
-//     return i * 100;
-//   },
-//   endDelay: function (el, i, l) {
-//     return (l - i) * 100;
-//   },
-// });
-
-// anime({
-//   targets: '#Vector',
-//   strokeDashoffset: [anime.setDashoffset, 0],
-//   easing: 'easeInOutSine',
-//   duration: 1500,
-//   delay: function (el, i) {
-//     return i * 250;
-//   },
-//   direction: 'forwards',
-// });
-
-// let scrollAnime = new ScrollMagic.Scene({
-//   triggerElement: '#skill',
-//   duration: 2000,
-//   triggerHook: 0,
-// })
-//   .addIndicators({
-//     colorTrigger: 'white',
-//     colorStart: 'blue',
-//     colorEnd: 'red',
-//   })
-//   .on('progress', function (event) {
-//     test5.seek(test5.duration * event.progress);
-//   })
-//   .setPin('#skill')
-//   .addTo(controller);
-
-// const test1 = anime.timeline({
-//   duration: 3000,
-// });
-// test1
-//   .add({
-//     targets: '.Vector',
-//     strokeDashoffset: [anime.setDashoffset, 0],
-//     easing: 'easeInOutSine',
-//     duration: 1500,
-//     delay: function (el, i) {
-//       return i * 250;
-//     },
-//     direction: 'reverse',
-//   })
-//   .add(
-//     {
-//       targets: '.test',
-//       translateY: -50,
-//       opacity: 1,
-//       loop: false,
-//       delay: function (el, i, l) {
-//         return i * 100;
-//       },
-//       endDelay: function (el, i, l) {
-//         return (l - i) * 100;
-//       },
-//     },
-//     '-=100'
-//   );

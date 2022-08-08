@@ -20,8 +20,7 @@
   align-items: center;
   justify-content: center;
 }
-.loading-img-wrapper {
-}
+
 .loading-text-wrapper {
   display: flex;
   flex-direction: column;
