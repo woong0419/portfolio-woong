@@ -220,6 +220,7 @@
   justify-content: center;
   gap: 4rem;
   max-width: 130rem;
+  padding: 0rem 7rem;
 }
 .project-content-card {
   position: relative;

@@ -103,6 +103,9 @@
   .contact-title {
     transform: translateX(-24rem);
   }
+  .overlay-header {
+    padding: 0 1rem 0 0;
+  }
   .overlay-nav a {
     font-size: 3rem;
   }
@@ -122,6 +125,9 @@
   }
   .header {
     border-right: none;
+  }
+  .overlay-header {
+    padding: 0 1rem 0 0;
   }
   .header-content {
     display: none;
@@ -176,7 +182,8 @@
     grid-template-columns: repeat(3, 15.5rem);
     grid-template-rows: repeat(4, 9rem);
   }
-  #skill {
+  #skill,
+  #contact {
     min-height: auto;
   }
   .project-title {
@@ -184,7 +191,7 @@
     padding-top: 15rem;
   }
   .project-content-card {
-    max-width: 35rem;
+    max-width: 38rem;
   }
   .contact-contents {
     height: auto;
@@ -195,8 +202,99 @@
   }
   .contact-form {
     padding-bottom: 8rem;
+    width: 60%;
   }
 }
 
 @media (max-width: 640px) {
+  #nav-btn {
+    font-size: 3rem;
+  }
+  .exit-btn ion-icon {
+    font-size: 3rem;
+  }
+  .overlay-nav ul {
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+  }
+  .overlay-header {
+    height: 7rem;
+  }
+  .overlay-img-wrapper {
+    display: flex;
+    align-items: center;
+  }
+  .overlay-img-wrapper svg {
+    width: 5rem;
+    height: 5rem;
+  }
+  .overlay-footer {
+    height: 7rem;
+    justify-content: center;
+    margin: 0;
+  }
+  .home-contents svg {
+    width: 300px;
+    height: 150px;
+  }
+  #main-logo {
+    transform: scale(1.5) translate(-25rem, -15rem);
+  }
+  .home-text-wrapper {
+    transform: translate(0rem, 0rem);
+  }
+  .button-wrapper {
+    transform: translate(8rem, 0.7rem);
+  }
+  .about-textbox {
+    transform: translateX(0);
+    padding-top: 0rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .about-text {
+    font-size: 1.3rem;
+    line-height: 2rem;
+    text-align: center;
+  }
+  .about-greeting {
+    font-size: 3rem;
+    padding-bottom: 3rem;
+  }
+  .about-contents {
+    padding-top: 8rem;
+  }
+  .skill-title {
+    transform: translate(0rem, -10rem);
+  }
+  .grid-4 {
+    grid-template-columns: repeat(3, 8rem);
+    grid-template-rows: repeat(4, 8rem);
+  }
+  .skill-wrapper span {
+    font-size: 1rem;
+  }
+  .project-title {
+    transform: translateX(0rem);
+  }
+  .project-content-wrapper {
+    padding: 0rem 2rem;
+  }
+  .card-back-title {
+    font-size: 2rem;
+  }
+  .card-back-text {
+    font-size: 1.2rem;
+    padding: 1rem 2rem;
+  }
+  .contact-title {
+    transform: translateX(0rem);
+  }
+  .contact-form {
+    padding-bottom: 6rem;
+    width: 85%;
+  }
 }
