@@ -10,12 +10,14 @@ html {
   height: 100%;
   scroll-behavior: smooth;
   overflow-x: hidden;
+  position: relative;
 }
 
 body {
   background-color: #1d1d1d;
   font-family: 'Rubik', sans-serif;
   color: #ffffff;
+  position: relative;
 }
 main {
   position: relative;
