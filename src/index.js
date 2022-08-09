@@ -116,12 +116,14 @@ const menuNav = () => {
       menuAnimeHandler('forwards');
       menuNavAnimeHandler();
       html.style.overflow = 'hidden';
+      html.style.touchAction = 'none';
     }, 500);
   });
   closeBtn.addEventListener('click', () => {
     menuAnimeHandler('reverse');
     menuCloseHandler();
     html.style.overflow = 'scroll';
+    html.style.touchAction = 'auto';
     setTimeout(() => {
       overlay.classList.toggle('clicked');
     }, 500);
@@ -130,6 +132,7 @@ const menuNav = () => {
     menuAnimeHandler('reverse');
     menuCloseHandler();
     html.style.overflow = 'scroll';
+    html.style.touchAction = 'auto';
     setTimeout(() => {
       overlay.classList.toggle('clicked');
     }, 500);
@@ -138,6 +141,7 @@ const menuNav = () => {
     menuAnimeHandler('reverse');
     menuCloseHandler();
     html.style.overflow = 'scroll';
+    html.style.touchAction = 'auto';
     setTimeout(() => {
       overlay.classList.toggle('clicked');
     }, 500);
