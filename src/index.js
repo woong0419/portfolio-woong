@@ -192,6 +192,7 @@ const loadingScreen = () => {
   const html = document.querySelector('html');
   const loading = document.querySelector('.loading');
   html.style.overflow = 'hidden';
+  html.style.touchAction = 'none';
 
   anime
     .timeline({
@@ -249,7 +250,7 @@ const loadingScreen = () => {
       complete: () => {
         loading.style.visibility = 'hidden';
         html.style.overflow = 'scroll';
-        // window.scrollTo({ top: 0 });
+        html.style.touchAction = 'auto';
       },
     })
     .add({
@@ -281,8 +282,6 @@ const loadingScreen = () => {
 const aboutScroll = () => {
   const svg = document.querySelector('.home-contents svg');
   const html = document.querySelector('html');
-  const main = document.querySelector('main');
-  const body = document.querySelector('body');
 
   let aboutAnime = new ScrollMagic.Scene({
     triggerElement: '#about',
@@ -291,8 +290,6 @@ const aboutScroll = () => {
     .reverse(true)
     .on('enter', function (event) {
       html.style.overflow = 'hidden';
-      main.style.overflow = 'hidden';
-      body.style.overflow = 'hidden';
 
       anime
         .timeline({
@@ -333,8 +330,6 @@ const aboutScroll = () => {
             },
             complete: () => {
               html.style.overflow = 'scroll';
-              main.style.overflow = 'scroll';
-              body.style.overflow = 'scroll';
             },
           },
           '-=2100'
