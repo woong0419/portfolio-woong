@@ -292,7 +292,6 @@ const aboutScroll = () => {
     triggerElement: '#about',
     triggerHook: 0,
   })
-    .addIndicators()
     .reverse(true)
     .on('enter', function (event) {
       html.style.overflow = 'hidden';
