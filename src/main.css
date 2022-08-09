@@ -246,6 +246,7 @@
   align-items: center;
   color: #00b1bd;
   background-color: #ffffff;
+  backface-visibility: hidden;
 }
 .card-front-skills li {
   font-size: 1.3rem;

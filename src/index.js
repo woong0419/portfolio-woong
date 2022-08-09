@@ -294,7 +294,7 @@ const aboutScroll = () => {
     .reverse(true)
     .on('enter', function (event) {
       html.style.overflow = 'hidden';
-
+      html.style.touchAction = 'none';
       anime
         .timeline({
           targets: svg,
@@ -334,6 +334,7 @@ const aboutScroll = () => {
             },
             complete: () => {
               html.style.overflow = 'scroll';
+              html.style.touchAction = 'auto';
             },
           },
           '-=2100'
