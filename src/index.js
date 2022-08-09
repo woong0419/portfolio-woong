@@ -15,11 +15,7 @@ let height =
   document.documentElement.clientHeight ||
   document.body.clientHeight;
 
-window.onresize = function () {
-  console.log('resize');
-};
 window.addEventListener('resize', () => {
-  console.log('resize2');
   width =
     window.innerWidth ||
     document.documentElement.clientWidth ||
@@ -286,6 +282,7 @@ const aboutScroll = () => {
   const svg = document.querySelector('.home-contents svg');
   const html = document.querySelector('html');
   const main = document.querySelector('main');
+  const body = document.querySelector('body');
 
   let aboutAnime = new ScrollMagic.Scene({
     triggerElement: '#about',
@@ -295,6 +292,7 @@ const aboutScroll = () => {
     .on('enter', function (event) {
       html.style.overflow = 'hidden';
       main.style.overflow = 'hidden';
+      body.style.overflow = 'hidden';
 
       anime
         .timeline({
@@ -336,6 +334,7 @@ const aboutScroll = () => {
             complete: () => {
               html.style.overflow = 'scroll';
               main.style.overflow = 'scroll';
+              body.style.overflow = 'scroll';
             },
           },
           '-=2100'
