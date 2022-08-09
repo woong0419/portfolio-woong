@@ -240,10 +240,12 @@
   display: flex;
   width: 100%;
   justify-content: space-evenly;
-  height: 7rem;
+  height: 5rem;
   border-bottom-right-radius: 1rem;
   border-bottom-left-radius: 1rem;
   align-items: center;
+  color: #00b1bd;
+  background-color: #ffffff;
 }
 .card-front-skills li {
   font-size: 1.3rem;
@@ -254,11 +256,17 @@
   height: 100%;
   border-radius: 1rem;
   backface-visibility: hidden;
+  cursor: pointer;
 }
 .card-front img {
   border-radius: 1rem;
   width: 100%;
   filter: brightness(0.8);
+  transition: 0.7s ease;
+}
+.card-front:hover img {
+  filter: brightness(1);
+  transition: 0.7s ease;
 }
 .card-back {
   border-radius: 1rem;

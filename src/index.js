@@ -6,10 +6,31 @@ import mainCss from './main.css';
 import media from './media.css';
 import { ScrollMagicPluginIndicator } from 'scrollmagic-plugins';
 
-const width =
+let width =
   window.innerWidth ||
   document.documentElement.clientWidth ||
   document.body.clientWidth;
+let height =
+  window.innerHeight ||
+  document.documentElement.clientHeight ||
+  document.body.clientHeight;
+
+window.onresize = function () {
+  console.log('resize');
+};
+window.addEventListener('resize', () => {
+  console.log('resize2');
+  width =
+    window.innerWidth ||
+    document.documentElement.clientWidth ||
+    document.body.clientWidth;
+  height =
+    window.innerHeight ||
+    document.documentElement.clientHeight ||
+    document.body.clientHeight;
+});
+
+console.log(width, height);
 
 ScrollMagicPluginIndicator(ScrollMagic);
 const controller = new ScrollMagic.Controller();
@@ -265,12 +286,17 @@ const loadingScreen = () => {
 //ABOUT METHOD
 const aboutScroll = () => {
   const svg = document.querySelector('.home-contents svg');
+  const html = document.querySelector('html');
+
   let aboutAnime = new ScrollMagic.Scene({
     triggerElement: '#about',
-    triggerHook: 0.25,
+    triggerHook: 0,
   })
+    .addIndicators()
     .reverse(true)
     .on('enter', function (event) {
+      html.style.overflow = 'hidden';
+
       anime
         .timeline({
           targets: svg,
@@ -307,6 +333,9 @@ const aboutScroll = () => {
             },
             endDelay: function (el, i, l) {
               return (l - i) * anime.random(0, 100);
+            },
+            complete: () => {
+              html.style.overflow = 'scroll';
             },
           },
           '-=2100'
