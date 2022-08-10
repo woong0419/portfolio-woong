@@ -286,6 +286,7 @@ const loadingScreen = () => {
 const aboutScroll = () => {
   const svg = document.querySelector('.home-contents svg');
   const html = document.querySelector('html');
+  const body = document.querySelector('body');
 
   let aboutAnime = new ScrollMagic.Scene({
     triggerElement: '#about',
@@ -295,6 +296,7 @@ const aboutScroll = () => {
     .on('enter', function (event) {
       html.style.overflow = 'hidden';
       html.style.touchAction = 'none';
+      body.style.touchAction = 'none';
       anime
         .timeline({
           targets: svg,
@@ -335,6 +337,7 @@ const aboutScroll = () => {
             complete: () => {
               html.style.overflow = 'scroll';
               html.style.touchAction = 'auto';
+              body.style.touchAction = 'auto';
             },
           },
           '-=2100'
