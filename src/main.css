@@ -264,6 +264,7 @@
   width: 100%;
   filter: brightness(0.8);
   transition: 0.7s ease;
+  backface-visibility: hidden;
 }
 .card-front:hover img {
   filter: brightness(1);
