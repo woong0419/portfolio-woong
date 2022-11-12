@@ -12,6 +12,7 @@
   }
   .project-content-card {
     max-width: 50rem;
+    max-height: 27rem;
   }
   .skill-title,
   .project-title,
@@ -45,6 +46,7 @@
   }
   .project-content-card {
     max-width: 40rem;
+    max-height: 22rem;
   }
   .contact-title {
     transform: translateX(-24rem);
@@ -192,6 +194,7 @@
   }
   .project-content-card {
     max-width: 38rem;
+    max-height: 20rem;
   }
   .contact-contents {
     height: auto;
