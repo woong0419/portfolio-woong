@@ -221,6 +221,9 @@
   max-width: 130rem;
   padding: 0rem 7rem;
 }
+.project-content-card-dummy {
+  width: 60rem;
+}
 .project-content-card {
   position: relative;
   border-radius: 1rem;

@@ -10,6 +10,9 @@
     grid-template-columns: repeat(4, 24rem);
     grid-template-rows: repeat(3, 13rem);
   }
+  .project-content-card-dummy {
+    width: 50rem;
+  }
   .project-content-card {
     max-width: 50rem;
     max-height: 27rem;
@@ -43,6 +46,9 @@
   }
   .project-title {
     transform: translateX(-22rem);
+  }
+  .project-content-card-dummy {
+    width: 40rem;
   }
   .project-content-card {
     max-width: 40rem;
@@ -98,6 +104,9 @@
 
   .project-title {
     transform: translateX(-22rem);
+  }
+  .project-content-card-dummy {
+    width: 40rem;
   }
   .project-content-card {
     max-width: 40rem;
@@ -191,6 +200,9 @@
   .project-title {
     transform: translateX(-10.5rem);
     padding-top: 15rem;
+  }
+  .project-content-card-dummy {
+    width: 38rem;
   }
   .project-content-card {
     max-width: 38rem;
