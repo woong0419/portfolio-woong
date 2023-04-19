@@ -293,8 +293,8 @@ const aboutScroll = () => {
   })
     .reverse(true)
     .on('enter', function (event) {
-      html.style.overflow = 'hidden';
-      html.style.touchAction = 'none';
+      // html.style.overflow = 'hidden';
+      // html.style.touchAction = 'none';
       anime
         .timeline({
           targets: svg,
@@ -333,8 +333,8 @@ const aboutScroll = () => {
               return (l - i) * anime.random(0, 100);
             },
             complete: () => {
-              html.style.overflow = 'scroll';
-              html.style.touchAction = 'auto';
+              // html.style.overflow = 'scroll';
+              // html.style.touchAction = 'auto';
             },
           },
           '-=2100'
